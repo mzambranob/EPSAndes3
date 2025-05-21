@@ -12,8 +12,9 @@ import lombok.ToString;
 public class Disponibilidad {
 
     @Id
-    private int id_disponibilidad;
+    private int _id;
 
+    private int id_disponibilidad;
     private EstadoEnum estado_disponibilidad;
     private Date fecha_disponibilidad;
 
@@ -24,9 +25,10 @@ public class Disponibilidad {
     private int cc_afiliado_objetivo;
 
     // Constructor
-    public Disponibilidad(int id_disponibilidad, EstadoEnum estado_disponibilidad, Date fecha_disponibilidad,
+    public Disponibilidad(int _id, int id_disponibilidad, EstadoEnum estado_disponibilidad, Date fecha_disponibilidad,
             Servicio servicio, int codigo_nit, int numero_medico_asociado, int id_orden_asociada,
             int cc_afiliado_objetivo) {
+        this._id = _id;
         this.id_disponibilidad = id_disponibilidad;
         this.estado_disponibilidad = estado_disponibilidad;
         this.fecha_disponibilidad = fecha_disponibilidad;
@@ -37,6 +39,14 @@ public class Disponibilidad {
         this.cc_afiliado_objetivo = cc_afiliado_objetivo;
 
         // Getters y Setters
+    }
+
+    public int get_id() {
+        return _id;
+    }
+
+    public void set_id(int _id) {
+        this._id = _id;
     }
 
     public int getId_disponibilidad() {

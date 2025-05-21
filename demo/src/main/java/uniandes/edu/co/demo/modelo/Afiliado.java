@@ -11,8 +11,9 @@ import lombok.ToString;
 @ToString
 public class Afiliado {
     @Id
-    private int numero_documento;
+    private int _id;
 
+    private int numero_documento;
     private String tipo_documento;
     private String nombre;
     private String fecha_nacimiento;
@@ -25,9 +26,10 @@ public class Afiliado {
     private List<IPS> ipss;
 
     // Constructor
-    public Afiliado(int numero_documento, String tipo_documento, String nombre, String fecha_nacimiento,
+    public Afiliado(int _id, int numero_documento, String tipo_documento, String nombre, String fecha_nacimiento,
             String direccion_residencia, String telefono, String estado, String tipo, String parentezco,
             List<IPS> ipss) {
+        this._id = _id;
         this.numero_documento = numero_documento;
         this.tipo_documento = tipo_documento;
         this.nombre = nombre;
@@ -40,6 +42,14 @@ public class Afiliado {
         this.ipss = ipss;
 
         // Getters y Setters
+    }
+
+    public int get_id() {
+        return _id;
+    }
+
+    public void set_id(int _id) {
+        this._id = _id;
     }
 
     public int getNumero_documento() {

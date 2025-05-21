@@ -13,8 +13,9 @@ import lombok.ToString;
 public class IPS {
 
     @Id
-    private int codigo_nit;
+    private int _id;
 
+    private int codigo_nit;
     private String nombre;
     private String direccion;
     private String telefono;
@@ -25,8 +26,9 @@ public class IPS {
     private List<Servicio> servicios;
 
     // Constructor
-    public IPS(int codigo_nit, String nombre, String direccion, String telefono, Date horario_atencion,
+    public IPS(int _id, int codigo_nit, String nombre, String direccion, String telefono, Date horario_atencion,
             List<Medico> medicos, List<Afiliado> afiliados, List<Servicio> servicios) {
+        this._id = _id;
         this.codigo_nit = codigo_nit;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -37,6 +39,14 @@ public class IPS {
         this.servicios = servicios;
 
         // Getters y Setters
+    }
+
+    public int get_id() {
+        return _id;
+    }
+
+    public void set_id(int _id) {
+        this._id = _id;
     }
 
     public int getCodigo_nit() {

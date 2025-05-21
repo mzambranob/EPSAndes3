@@ -12,8 +12,9 @@ import lombok.ToString;
 public class OrdenServicio {
 
     @Id
-    private int id_orden;
+    private int _id;
 
+    private int id_orden;
     private Date fecha;
     private int afiliado_objetivo;
     private int medico_rescriptor;
@@ -22,8 +23,9 @@ public class OrdenServicio {
     private Servicio servicio;
 
     // Constructor
-    public OrdenServicio(int id_orden, Date fecha, int afiliado_objetivo, int medico_rescriptor,
+    public OrdenServicio(int _id, int id_orden, Date fecha, int afiliado_objetivo, int medico_rescriptor,
             EstadoEnum estado_orden, Servicio servicio) {
+        this._id = _id;
         this.id_orden = id_orden;
         this.fecha = fecha;
         this.afiliado_objetivo = afiliado_objetivo;
@@ -33,6 +35,15 @@ public class OrdenServicio {
     }
 
     // Getters y Setters
+
+    public int get_id() {
+        return _id;
+    }
+
+    public void set_id(int _id) {
+        this._id = _id;
+    }
+
     public int getId_orden() {
         return id_orden;
     }
