@@ -15,16 +15,16 @@ public interface AfiliadoRepository extends MongoRepository<Afiliado, Integer> {
     List<Afiliado> findAllAfiliados();
 
     @Query("{_id: ?0}")
-    Afiliado findAfiliadoById(int id);
+    List<Afiliado> findAfiliadoById(int id);
 
     default void insertAfiliado(Afiliado afiliado) {
         save(afiliado);
     }
 
     @Query("{_id: ?0}")
-    @Update("{ $set: { nombre: ?1, apellido: ?2, edad: ?3, direccion: ?4, telefono: ?5, estado: ?6, tipo: ?7, parentezco: ?8 } }")
-    void updateAfiliado(String nombre, String apellido, int edad, String direccion, String telefono,
-            String estado, String tipo, String parentezco);
+    @Update("{ $set: { tipo_documento: ?1, nombre: ?2, fecha_nacimiento: ?3, direccion_residencia: ?4, telefono: ?5, estado: ?6, tipo: ?7, parentezco: ?8 } }")
+    void updateAfiliado(int id, String tipo_documento, String nombre, String fecha_nacimiento,
+            String direccion_residencia, String telefono, String estado, String tipo, String parentezco);
 
     @Query(value = "{_id: ?0}", delete = true)
     void deleteAfiliadoPorId(int id);
