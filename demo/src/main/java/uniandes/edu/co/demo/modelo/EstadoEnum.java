@@ -7,6 +7,7 @@ public enum EstadoEnum {
     PENDIENTE("PENDIENTE"),
     CANCELADA("CANCELADA"),
     COMPLETADA("COMPLETADA"),
+    OCUPADA("OCUPADA"),
     PROCESADA("PROCESADA");
 
     public String estado_disponibilidad;

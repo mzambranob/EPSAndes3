@@ -1,7 +1,5 @@
 package uniandes.edu.co.demo.modelo;
 
-import java.sql.Date;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,18 +14,19 @@ public class Disponibilidad {
 
     private int id_disponibilidad;
     private EstadoEnum estado_disponibilidad;
-    private Date fecha_disponibilidad;
+
+    private String fecha_disponibilidad;
 
     private Servicio servicio;
     private int codigo_nit;
     private int numero_medico_asociado;
     private int id_orden_asociada;
-    private int cc_afiliado_objetivo;
+    private int cc_afiliado_asociado;
 
     // Constructor
-    public Disponibilidad(int id_disponibilidad, EstadoEnum estado_disponibilidad, Date fecha_disponibilidad,
+    public Disponibilidad(int id_disponibilidad, EstadoEnum estado_disponibilidad, String fecha_disponibilidad,
             Servicio servicio, int codigo_nit, int numero_medico_asociado, int id_orden_asociada,
-            int cc_afiliado_objetivo) {
+            int cc_afiliado_asociado) {
 
         this._id = id_disponibilidad;
         this.id_disponibilidad = id_disponibilidad;
@@ -37,7 +36,7 @@ public class Disponibilidad {
         this.codigo_nit = codigo_nit;
         this.numero_medico_asociado = numero_medico_asociado;
         this.id_orden_asociada = id_orden_asociada;
-        this.cc_afiliado_objetivo = cc_afiliado_objetivo;
+        this.cc_afiliado_asociado = cc_afiliado_asociado;
 
     }
 
@@ -59,11 +58,11 @@ public class Disponibilidad {
         this.estado_disponibilidad = estado_disponibilidad;
     }
 
-    public Date getFecha_disponibilidad() {
+    public String getFecha_disponibilidad() {
         return fecha_disponibilidad;
     }
 
-    public void setFecha_disponibilidad(Date fecha_disponibilidad) {
+    public void setFecha_disponibilidad(String fecha_disponibilidad) {
         this.fecha_disponibilidad = fecha_disponibilidad;
     }
 
@@ -99,11 +98,11 @@ public class Disponibilidad {
         this.id_orden_asociada = id_orden_asociada;
     }
 
-    public int getCc_afiliado_objetivo() {
-        return cc_afiliado_objetivo;
+    public int getCc_afiliado_asociado() {
+        return cc_afiliado_asociado;
     }
 
-    public void setCc_afiliado_objetivo(int cc_afiliado_objetivo) {
-        this.cc_afiliado_objetivo = cc_afiliado_objetivo;
+    public void setCc_afiliado_asociado(int cc_afiliado_asociado) {
+        this.cc_afiliado_asociado = cc_afiliado_asociado;
     }
 }

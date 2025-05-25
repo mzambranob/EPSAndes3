@@ -31,16 +31,16 @@ public class OrdenServicioController {
     public ResponseEntity<String> updateOrden(@PathVariable("id") int id, @RequestBody OrdenServicio orden) {
         try {
             ordenServicioRepository.updateOrden(
-                id,
-                orden.getFecha(),
-                orden.getAfiliado_objetivo(),
-                orden.getMedico_rescriptor(),
-                orden.getEstado_orden().toString(),
-                orden.getServicio()
-            );
+                    id,
+                    orden.getFecha(),
+                    orden.getAfiliado_objetivo(),
+                    orden.getMedico_prescriptor(),
+                    orden.getEstado_orden().toString(),
+                    orden.getServicio());
             return new ResponseEntity<>("Orden de servicio actualizada con éxito", HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Error al actualizar la orden: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error al actualizar la orden: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -57,7 +57,8 @@ public class OrdenServicioController {
     public ResponseEntity<List<OrdenServicio>> getOrdenById(@PathVariable("id") int id) {
         try {
             List<OrdenServicio> ordenes = ordenServicioRepository.findOrdenById(id);
-            return ordenes != null && !ordenes.isEmpty() ? ResponseEntity.ok(ordenes) : ResponseEntity.notFound().build();
+            return ordenes != null && !ordenes.isEmpty() ? ResponseEntity.ok(ordenes)
+                    : ResponseEntity.notFound().build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
@@ -69,7 +70,8 @@ public class OrdenServicioController {
             ordenServicioRepository.deleteOrdenById(id);
             return new ResponseEntity<>("Orden de servicio eliminada con éxito", HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Error al eliminar la orden: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error al eliminar la orden: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

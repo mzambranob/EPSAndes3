@@ -17,19 +17,19 @@ public class OrdenServicio {
     private int id_orden;
     private Date fecha;
     private int afiliado_objetivo;
-    private int medico_rescriptor;
+    private int medico_prescriptor;
     private EstadoEnum estado_orden;
 
     private Servicio servicio;
 
     // Constructor
-    public OrdenServicio(int id_orden, Date fecha, int afiliado_objetivo, int medico_rescriptor,
+    public OrdenServicio(int id_orden, Date fecha, int afiliado_objetivo, int medico_prescriptor,
             EstadoEnum estado_orden, Servicio servicio) {
         this._id = id_orden;
         this.id_orden = id_orden;
         this.fecha = fecha;
         this.afiliado_objetivo = afiliado_objetivo;
-        this.medico_rescriptor = medico_rescriptor;
+        this.medico_prescriptor = medico_prescriptor;
         this.estado_orden = estado_orden;
         this.servicio = servicio;
     }
@@ -60,12 +60,12 @@ public class OrdenServicio {
         this.afiliado_objetivo = afiliado_objetivo;
     }
 
-    public int getMedico_rescriptor() {
-        return medico_rescriptor;
+    public int getMedico_prescriptor() {
+        return medico_prescriptor;
     }
 
-    public void setMedico_rescriptor(int medico_rescriptor) {
-        this.medico_rescriptor = medico_rescriptor;
+    public void setMedico_prescriptor(int medico_rescriptor) {
+        this.medico_prescriptor = medico_rescriptor;
     }
 
     public EstadoEnum getEstado_orden() {

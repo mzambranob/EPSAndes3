@@ -21,7 +21,8 @@ public class ServicioController {
             servicioRepository.save(servicio);
             return new ResponseEntity<>("Servicio creado con éxito", HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>("Error al crear el servicio: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error al crear el servicio: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -32,7 +33,8 @@ public class ServicioController {
                     servicio.getHorario_servicio(), servicio.getIpss(), servicio.getMedicos());
             return new ResponseEntity<>("Servicio actualizado con éxito", HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Error al actualizar el servicio: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error al actualizar el servicio: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -49,7 +51,8 @@ public class ServicioController {
     public ResponseEntity<List<Servicio>> getServicioById(@PathVariable("id") int id) {
         try {
             List<Servicio> servicios = servicioRepository.findServicioById(id);
-            return servicios != null && !servicios.isEmpty() ? ResponseEntity.ok(servicios) : ResponseEntity.notFound().build();
+            return servicios != null && !servicios.isEmpty() ? ResponseEntity.ok(servicios)
+                    : ResponseEntity.notFound().build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
@@ -61,7 +64,8 @@ public class ServicioController {
             servicioRepository.deleteServicioById(id);
             return new ResponseEntity<>("Servicio eliminado con éxito", HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Error al eliminar el servicio: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error al eliminar el servicio: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

@@ -23,7 +23,8 @@ public class DisponibilidadController {
             disponibilidadRepository.save(d);
             return new ResponseEntity<>("Disponibilidad creada con éxito", HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>("Error al crear la disponibilidad: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error al crear la disponibilidad: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -31,18 +32,18 @@ public class DisponibilidadController {
     public ResponseEntity<String> updateDisponibilidad(@PathVariable("id") int id, @RequestBody Disponibilidad d) {
         try {
             disponibilidadRepository.updateDisponibilidad(
-                id,
-                d.getEstado_disponibilidad().toString(),
-                d.getFecha_disponibilidad(),
-                d.getServicio(),
-                d.getCodigo_nit(),
-                d.getNumero_medico_asociado(),
-                d.getId_orden_asociada(),
-                d.getCc_afiliado_objetivo()
-            );
+                    id,
+                    d.getEstado_disponibilidad().toString(),
+                    d.getFecha_disponibilidad(),
+                    d.getServicio(),
+                    d.getCodigo_nit(),
+                    d.getNumero_medico_asociado(),
+                    d.getId_orden_asociada(),
+                    d.getCc_afiliado_asociado());
             return new ResponseEntity<>("Disponibilidad actualizada con éxito", HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Error al actualizar la disponibilidad: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error al actualizar la disponibilidad: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -51,6 +52,7 @@ public class DisponibilidadController {
         try {
             return ResponseEntity.ok(disponibilidadRepository.findAllDisponibilidades());
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
@@ -59,7 +61,8 @@ public class DisponibilidadController {
     public ResponseEntity<List<Disponibilidad>> getDisponibilidadById(@PathVariable("id") int id) {
         try {
             List<Disponibilidad> disponibilidades = disponibilidadRepository.findDisponibilidadById(id);
-            return disponibilidades != null && !disponibilidades.isEmpty() ? ResponseEntity.ok(disponibilidades) : ResponseEntity.notFound().build();
+            return disponibilidades != null && !disponibilidades.isEmpty() ? ResponseEntity.ok(disponibilidades)
+                    : ResponseEntity.notFound().build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
@@ -71,8 +74,8 @@ public class DisponibilidadController {
             disponibilidadRepository.deleteDisponibilidadById(id);
             return new ResponseEntity<>("Disponibilidad eliminada con éxito", HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Error al eliminar la disponibilidad: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error al eliminar la disponibilidad: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
-

@@ -22,8 +22,8 @@ public interface ServicioRepository extends MongoRepository<Servicio, Integer> {
 
     @Query("{_id: ?0}")
     @Update("{ $set: { tipo_servicio: ?1, necesita_orden: ?2, horario_servicio: ?3, ipss: ?4, medicos: ?5 } }")
-    void updateServicio(int id, String tipo_servicio, int necesita_orden, java.util.Date horario_servicio,
-                        List<IPS> ipss, List<Medico> medicos);
+    void updateServicio(int id, String tipo_servicio, int necesita_orden, String horario_servicio,
+            List<Integer> ipss, List<Integer> medicos);
 
     @Query(value = "{_id: ?0}", delete = true)
     void deleteServicioById(int id);

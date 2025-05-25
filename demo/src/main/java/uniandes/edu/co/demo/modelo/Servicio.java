@@ -18,14 +18,14 @@ public class Servicio {
 
     private ServicioEnum tipo_servicio;
     private int necesita_orden;
-    private Date horario_servicio;
+    private String horario_servicio;
 
-    private List<IPS> ipss;
-    private List<Medico> medicos;
+    private List<Integer> ipss;
+    private List<Integer> medicos;
 
     // Constructor
-    public Servicio(int id_servicio, ServicioEnum tipo_servicio, int necesita_orden, Date horario_servicio,
-            List<IPS> ipss, List<Medico> medicos) {
+    public Servicio(int id_servicio, ServicioEnum tipo_servicio, int necesita_orden, String horario_servicio,
+            List<Integer> ipss, List<Integer> medicos) {
 
         this._id = id_servicio;
         this.id_servicio = id_servicio;
@@ -62,27 +62,27 @@ public class Servicio {
         this.necesita_orden = necesita_orden;
     }
 
-    public Date getHorario_servicio() {
+    public String getHorario_servicio() {
         return horario_servicio;
     }
 
-    public void setHorario_servicio(Date horario_servicio) {
+    public void setHorario_servicio(String horario_servicio) {
         this.horario_servicio = horario_servicio;
     }
 
-    public List<IPS> getIpss() {
+    public List<Integer> getIpss() {
         return ipss;
     }
 
-    public void setIpss(List<IPS> ipss) {
+    public void setIpss(List<Integer> ipss) {
         this.ipss = ipss;
     }
 
-    public List<Medico> getMedicos() {
+    public List<Integer> getMedicos() {
         return medicos;
     }
 
-    public void setMedicos(List<Medico> medicos) {
+    public void setMedicos(List<Integer> medicos) {
         this.medicos = medicos;
     }
 }
