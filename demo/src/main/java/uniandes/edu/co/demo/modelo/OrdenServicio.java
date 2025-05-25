@@ -23,9 +23,9 @@ public class OrdenServicio {
     private Servicio servicio;
 
     // Constructor
-    public OrdenServicio(int _id, int id_orden, Date fecha, int afiliado_objetivo, int medico_rescriptor,
+    public OrdenServicio(int id_orden, Date fecha, int afiliado_objetivo, int medico_rescriptor,
             EstadoEnum estado_orden, Servicio servicio) {
-        this._id = _id;
+        this._id = id_orden;
         this.id_orden = id_orden;
         this.fecha = fecha;
         this.afiliado_objetivo = afiliado_objetivo;
@@ -35,14 +35,6 @@ public class OrdenServicio {
     }
 
     // Getters y Setters
-
-    public int get_id() {
-        return _id;
-    }
-
-    public void set_id(int _id) {
-        this._id = _id;
-    }
 
     public int getId_orden() {
         return id_orden;

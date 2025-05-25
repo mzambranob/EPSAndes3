@@ -24,23 +24,15 @@ public class Servicio {
     private List<Medico> medicos;
 
     // Constructor
-    public Servicio(int _id, int id_servicio, ServicioEnum tipo_servicio, int necesita_orden, Date horario_servicio,
+    public Servicio(int id_servicio, ServicioEnum tipo_servicio, int necesita_orden, Date horario_servicio,
             List<IPS> ipss, List<Medico> medicos) {
-        this._id = _id;
+        this._id = id_servicio;
         this.id_servicio = id_servicio;
         this.tipo_servicio = tipo_servicio;
         this.necesita_orden = necesita_orden;
         this.horario_servicio = horario_servicio;
         this.ipss = ipss;
         this.medicos = medicos;
-    }
-
-    public int get_id() {
-        return _id;
-    }
-
-    public void set_id(int _id) {
-        this._id = _id;
     }
 
     // Getters y Setters
