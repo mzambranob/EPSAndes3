@@ -44,14 +44,6 @@ public class Afiliado {
 
     // Getters y Setters
 
-    public int get_id() {
-        return _id;
-    }
-
-    public void set_id(int _id) {
-        this._id = _id;
-    }
-
     public int getNumero_documento() {
         return numero_documento;
     }

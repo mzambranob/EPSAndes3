@@ -26,6 +26,7 @@ public class Servicio {
     // Constructor
     public Servicio(int id_servicio, ServicioEnum tipo_servicio, int necesita_orden, Date horario_servicio,
             List<IPS> ipss, List<Medico> medicos) {
+
         this._id = id_servicio;
         this.id_servicio = id_servicio;
         this.tipo_servicio = tipo_servicio;
@@ -36,6 +37,7 @@ public class Servicio {
     }
 
     // Getters y Setters
+
     public int getId_servicio() {
         return id_servicio;
     }
