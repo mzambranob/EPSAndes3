@@ -20,13 +20,13 @@ public class Disponibilidad {
     private Servicio servicio;
     private int codigo_nit;
     private int numero_medico_asociado;
-    private int id_orden_asociada;
-    private int cc_afiliado_asociado;
+    private Integer id_orden_asociada;
+    private Integer cc_afiliado_asociado;
 
     // Constructor
     public Disponibilidad(int id_disponibilidad, EstadoEnum estado_disponibilidad, String fecha_disponibilidad,
-            Servicio servicio, int codigo_nit, int numero_medico_asociado, int id_orden_asociada,
-            int cc_afiliado_asociado) {
+            Servicio servicio, int codigo_nit, int numero_medico_asociado, Integer id_orden_asociada,
+            Integer cc_afiliado_asociado) {
 
         this._id = id_disponibilidad;
         this.id_disponibilidad = id_disponibilidad;
@@ -90,19 +90,19 @@ public class Disponibilidad {
         this.numero_medico_asociado = numero_medico_asociado;
     }
 
-    public int getId_orden_asociada() {
+    public Integer getId_orden_asociada() {
         return id_orden_asociada;
     }
 
-    public void setId_orden_asociada(int id_orden_asociada) {
+    public void setId_orden_asociada(Integer id_orden_asociada) {
         this.id_orden_asociada = id_orden_asociada;
     }
 
-    public int getCc_afiliado_asociado() {
+    public Integer getCc_afiliado_asociado() {
         return cc_afiliado_asociado;
     }
 
-    public void setCc_afiliado_asociado(int cc_afiliado_asociado) {
+    public void setCc_afiliado_asociado(Integer cc_afiliado_asociado) {
         this.cc_afiliado_asociado = cc_afiliado_asociado;
     }
 }
