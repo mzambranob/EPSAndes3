@@ -1,9 +1,12 @@
 package uniandes.edu.co.demo.modelo;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.ToString;
 
@@ -16,19 +19,22 @@ public class Afiliado {
     private int numero_documento;
     private String tipo_documento;
     private String nombre;
-    private String fecha_nacimiento;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+    private Date fecha_nacimiento;
+
     private String direccion_residencia;
-    private String telefono;
+    private int telefono;
     private String estado;
     private String tipo;
-    private String parentezco;
+    private Integer parentezco;
 
-    private List<IPS> ipss;
+    private List<Integer> codigos_nit_ipss;
 
     // Constructor
-    public Afiliado(int numero_documento, String tipo_documento, String nombre, String fecha_nacimiento,
-            String direccion_residencia, String telefono, String estado, String tipo, String parentezco,
-            List<IPS> ipss) {
+    public Afiliado(int numero_documento, String tipo_documento, String nombre, Date fecha_nacimiento,
+            String direccion_residencia, int telefono, String estado, String tipo, Integer parentezco,
+            List<Integer> codigos_nit_ipss) {
         this._id = numero_documento;
         this.numero_documento = numero_documento;
         this.tipo_documento = tipo_documento;
@@ -39,7 +45,7 @@ public class Afiliado {
         this.estado = estado;
         this.tipo = tipo;
         this.parentezco = parentezco;
-        this.ipss = ipss;
+        this.codigos_nit_ipss = codigos_nit_ipss;
     }
 
     // Getters y Setters
@@ -68,11 +74,11 @@ public class Afiliado {
         this.nombre = nombre;
     }
 
-    public String getFecha_nacimiento() {
+    public Date getFecha_nacimiento() {
         return fecha_nacimiento;
     }
 
-    public void setFecha_nacimiento(String fecha_nacimiento) {
+    public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
@@ -84,11 +90,11 @@ public class Afiliado {
         this.direccion_residencia = direccion_residencia;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
@@ -108,19 +114,19 @@ public class Afiliado {
         this.tipo = tipo;
     }
 
-    public String getParentezco() {
+    public Integer getParentezco() {
         return parentezco;
     }
 
-    public void setParentezco(String parentezco) {
+    public void setParentezco(Integer parentezco) {
         this.parentezco = parentezco;
     }
 
-    public List<IPS> getIpss() {
-        return ipss;
+    public List<Integer> getCodigos_nit_Ipss() {
+        return codigos_nit_ipss;
     }
 
-    public void setIpss(List<IPS> ipss) {
-        this.ipss = ipss;
+    public void setCodigos_nit_Ipss(List<Integer> codigos_nit_ipss) {
+        this.codigos_nit_ipss = codigos_nit_ipss;
     }
 }

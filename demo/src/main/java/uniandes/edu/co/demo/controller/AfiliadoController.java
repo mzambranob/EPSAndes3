@@ -2,7 +2,6 @@ package uniandes.edu.co.demo.controller;
 
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +32,7 @@ public class AfiliadoController {
             return new ResponseEntity<>("Afiliado creado con éxito", HttpStatus.CREATED);
 
         } catch (Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<>("Error al crear el afiliado: " + e.getMessage(),
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -43,7 +43,7 @@ public class AfiliadoController {
         try {
             afiliadoRepository.updateAfiliado(id, afiliado.getTipo_documento(), afiliado.getNombre(),
                     afiliado.getFecha_nacimiento(), afiliado.getDireccion_residencia(), afiliado.getTelefono(),
-                    afiliado.getEstado(), afiliado.getTipo(), afiliado.getParentezco());
+                    afiliado.getEstado(), afiliado.getTipo(), afiliado.getParentezco(), afiliado.getCodigos_nit_Ipss());
 
             return new ResponseEntity<>("Afiliado actualizado con éxito", HttpStatus.OK);
 
