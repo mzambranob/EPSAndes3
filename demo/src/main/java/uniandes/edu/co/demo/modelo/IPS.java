@@ -26,9 +26,9 @@ public class IPS {
     private List<Servicio> servicios;
 
     // Constructor
-    public IPS(int _id, int codigo_nit, String nombre, String direccion, String telefono, Date horario_atencion,
+    public IPS(int codigo_nit, String nombre, String direccion, String telefono, Date horario_atencion,
             List<Medico> medicos, List<Afiliado> afiliados, List<Servicio> servicios) {
-        this._id = _id;
+        this._id = codigo_nit;
         this.codigo_nit = codigo_nit;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -38,16 +38,9 @@ public class IPS {
         this.afiliados = afiliados;
         this.servicios = servicios;
 
-        // Getters y Setters
     }
 
-    public int get_id() {
-        return _id;
-    }
-
-    public void set_id(int _id) {
-        this._id = _id;
-    }
+    // Getters y Setters
 
     public int getCodigo_nit() {
         return codigo_nit;

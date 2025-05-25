@@ -25,10 +25,11 @@ public class Disponibilidad {
     private int cc_afiliado_objetivo;
 
     // Constructor
-    public Disponibilidad(int _id, int id_disponibilidad, EstadoEnum estado_disponibilidad, Date fecha_disponibilidad,
+    public Disponibilidad(int id_disponibilidad, EstadoEnum estado_disponibilidad, Date fecha_disponibilidad,
             Servicio servicio, int codigo_nit, int numero_medico_asociado, int id_orden_asociada,
             int cc_afiliado_objetivo) {
-        this._id = _id;
+
+        this._id = id_disponibilidad;
         this.id_disponibilidad = id_disponibilidad;
         this.estado_disponibilidad = estado_disponibilidad;
         this.fecha_disponibilidad = fecha_disponibilidad;
@@ -38,16 +39,9 @@ public class Disponibilidad {
         this.id_orden_asociada = id_orden_asociada;
         this.cc_afiliado_objetivo = cc_afiliado_objetivo;
 
-        // Getters y Setters
     }
 
-    public int get_id() {
-        return _id;
-    }
-
-    public void set_id(int _id) {
-        this._id = _id;
-    }
+    // Getters y Setters
 
     public int getId_disponibilidad() {
         return id_disponibilidad;

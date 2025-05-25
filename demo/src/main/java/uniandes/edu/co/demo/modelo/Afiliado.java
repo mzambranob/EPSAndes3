@@ -26,10 +26,10 @@ public class Afiliado {
     private List<IPS> ipss;
 
     // Constructor
-    public Afiliado(int _id, int numero_documento, String tipo_documento, String nombre, String fecha_nacimiento,
+    public Afiliado(int numero_documento, String tipo_documento, String nombre, String fecha_nacimiento,
             String direccion_residencia, String telefono, String estado, String tipo, String parentezco,
             List<IPS> ipss) {
-        this._id = _id;
+        this._id = numero_documento;
         this.numero_documento = numero_documento;
         this.tipo_documento = tipo_documento;
         this.nombre = nombre;
@@ -40,9 +40,9 @@ public class Afiliado {
         this.tipo = tipo;
         this.parentezco = parentezco;
         this.ipss = ipss;
-
-        // Getters y Setters
     }
+
+    // Getters y Setters
 
     public int get_id() {
         return _id;

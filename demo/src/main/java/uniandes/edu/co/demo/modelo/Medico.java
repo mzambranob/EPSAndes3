@@ -19,9 +19,9 @@ public class Medico {
     private String tipo_documento;
 
     // Constructor
-    public Medico(int _id, int numero_registroMedico, int numero_documento, String nombre, String especialidad,
+    public Medico(int numero_registroMedico, int numero_documento, String nombre, String especialidad,
             String tipo_documento) {
-        this._id = _id;
+        this._id = numero_registroMedico;
         this.numero_registroMedico = numero_registroMedico;
         this.numero_documento = numero_documento;
         this.nombre = nombre;
@@ -30,14 +30,6 @@ public class Medico {
     }
 
     // Getters y Setters
-
-    public int get_id() {
-        return _id;
-    }
-
-    public void set_id(int _id) {
-        this._id = _id;
-    }
 
     public int getNumero_registroMedico() {
         return numero_registroMedico;
