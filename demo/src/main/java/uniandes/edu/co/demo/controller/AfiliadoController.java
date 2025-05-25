@@ -43,7 +43,7 @@ public class AfiliadoController {
         try {
             afiliadoRepository.updateAfiliado(id, afiliado.getTipo_documento(), afiliado.getNombre(),
                     afiliado.getFecha_nacimiento(), afiliado.getDireccion_residencia(), afiliado.getTelefono(),
-                    afiliado.getEstado(), afiliado.getTipo(), afiliado.getParentezco(), afiliado.getCodigos_nit_Ipss());
+                    afiliado.getEstado(), afiliado.getTipo(), afiliado.getParentezco(), afiliado.getCodigos_nit_Ips());
 
             return new ResponseEntity<>("Afiliado actualizado con éxito", HttpStatus.OK);
 

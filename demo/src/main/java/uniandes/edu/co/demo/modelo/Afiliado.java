@@ -29,12 +29,12 @@ public class Afiliado {
     private String tipo;
     private Integer parentezco;
 
-    private List<Integer> codigos_nit_ipss;
+    private List<Integer> codigos_nit_ips;
 
     // Constructor
     public Afiliado(int numero_documento, String tipo_documento, String nombre, Date fecha_nacimiento,
             String direccion_residencia, int telefono, String estado, String tipo, Integer parentezco,
-            List<Integer> codigos_nit_ipss) {
+            List<Integer> codigos_nit_ips) {
         this._id = numero_documento;
         this.numero_documento = numero_documento;
         this.tipo_documento = tipo_documento;
@@ -45,7 +45,7 @@ public class Afiliado {
         this.estado = estado;
         this.tipo = tipo;
         this.parentezco = parentezco;
-        this.codigos_nit_ipss = codigos_nit_ipss;
+        this.codigos_nit_ips = codigos_nit_ips;
     }
 
     // Getters y Setters
@@ -122,11 +122,11 @@ public class Afiliado {
         this.parentezco = parentezco;
     }
 
-    public List<Integer> getCodigos_nit_Ipss() {
-        return codigos_nit_ipss;
+    public List<Integer> getCodigos_nit_Ips() {
+        return codigos_nit_ips;
     }
 
-    public void setCodigos_nit_Ipss(List<Integer> codigos_nit_ipss) {
-        this.codigos_nit_ipss = codigos_nit_ipss;
+    public void setCodigos_nit_Ips(List<Integer> codigos_nit_ipss) {
+        this.codigos_nit_ips = codigos_nit_ipss;
     }
 }

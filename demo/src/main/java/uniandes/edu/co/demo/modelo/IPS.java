@@ -1,6 +1,5 @@
 package uniandes.edu.co.demo.modelo;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -18,16 +17,17 @@ public class IPS {
     private int codigo_nit;
     private String nombre;
     private String direccion;
-    private String telefono;
-    private Date horario_atencion;
+    private int telefono;
+
+    private String horario_atencion;
 
     private List<Medico> medicos;
-    private List<Afiliado> afiliados;
-    private List<Servicio> servicios;
+    private List<Integer> afiliados;
+    private List<Integer> servicios;
 
     // Constructor
-    public IPS(int codigo_nit, String nombre, String direccion, String telefono, Date horario_atencion,
-            List<Medico> medicos, List<Afiliado> afiliados, List<Servicio> servicios) {
+    public IPS(int codigo_nit, String nombre, String direccion, int telefono, String horario_atencion,
+            List<Medico> medicos, List<Integer> afiliados, List<Integer> servicios) {
         this._id = codigo_nit;
         this.codigo_nit = codigo_nit;
         this.nombre = nombre;
@@ -66,19 +66,19 @@ public class IPS {
         this.direccion = direccion;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
-    public Date getHorario_atencion() {
+    public String getHorario_atencion() {
         return horario_atencion;
     }
 
-    public void setHorario_atencion(Date horario_atencion) {
+    public void setHorario_atencion(String horario_atencion) {
         this.horario_atencion = horario_atencion;
     }
 
@@ -90,19 +90,19 @@ public class IPS {
         this.medicos = medicos;
     }
 
-    public List<Afiliado> getAfiliados() {
+    public List<Integer> getAfiliados() {
         return afiliados;
     }
 
-    public void setAfiliados(List<Afiliado> afiliados) {
+    public void setAfiliados(List<Integer> afiliados) {
         this.afiliados = afiliados;
     }
 
-    public List<Servicio> getServicios() {
+    public List<Integer> getServicios() {
         return servicios;
     }
 
-    public void setServicios(List<Servicio> servicios) {
+    public void setServicios(List<Integer> servicios) {
         this.servicios = servicios;
     }
 }

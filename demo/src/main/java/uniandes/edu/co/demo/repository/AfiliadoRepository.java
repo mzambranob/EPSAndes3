@@ -1,6 +1,5 @@
 package uniandes.edu.co.demo.repository;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import uniandes.edu.co.demo.modelo.IPS;
 
 public interface AfiliadoRepository extends MongoRepository<Afiliado, Integer> {
 
-    @Query(value = "{}", fields = "{'ipss': 0}")
+    @Query(value = "{}", fields = "{'codigos_nit_ips': 0}")
     List<Afiliado> findAllAfiliados();
 
     @Query("{_id: ?0}")
@@ -33,6 +32,6 @@ public interface AfiliadoRepository extends MongoRepository<Afiliado, Integer> {
     void deleteAfiliadoPorId(int id);
 
     @Query(value = "{_id: ?0}", fields = "{'ipss': 1}")
-    List<IPS> findIPSsPerAfiliado(int id);
+    List<IPS> findIPSsByAfiliado(int id);
 
 }
