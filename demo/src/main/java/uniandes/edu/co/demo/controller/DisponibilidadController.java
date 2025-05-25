@@ -52,7 +52,6 @@ public class DisponibilidadController {
         try {
             return ResponseEntity.ok(disponibilidadRepository.findAllDisponibilidades());
         } catch (Exception e) {
-            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
@@ -64,6 +63,7 @@ public class DisponibilidadController {
             return disponibilidades != null && !disponibilidades.isEmpty() ? ResponseEntity.ok(disponibilidades)
                     : ResponseEntity.notFound().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }

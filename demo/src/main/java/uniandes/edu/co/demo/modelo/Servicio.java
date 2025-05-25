@@ -1,6 +1,5 @@
 package uniandes.edu.co.demo.modelo;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
