@@ -17,15 +17,6 @@ public class OrdenServicioController {
     @Autowired
     private OrdenServicioRepository ordenServicioRepository;
 
-    @PostMapping("/new/save")
-    public ResponseEntity<String> createOrden(@RequestBody OrdenServicio orden) {
-        try {
-            ordenServicioRepository.save(orden);
-            return new ResponseEntity<>("Orden de servicio creada con éxito", HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>("Error al crear la orden: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
 
     @PostMapping("/{id}/edit/save")
     public ResponseEntity<String> updateOrden(@PathVariable("id") int id, @RequestBody OrdenServicio orden) {
@@ -74,4 +65,17 @@ public class OrdenServicioController {
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    //RF6
+    @PostMapping("/new/save")
+    public ResponseEntity<String> createOrden(@RequestBody OrdenServicio orden) {
+        try {
+            ordenServicioRepository.save(orden);
+            return new ResponseEntity<>("Orden de servicio creada con éxito", HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al crear la orden: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
 }
+

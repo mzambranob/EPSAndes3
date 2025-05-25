@@ -78,4 +78,30 @@ public class DisponibilidadController {
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    //RF7-1
+    @GetMapping("/rf7.1")
+    public ResponseEntity<List<Disponibilidad>> rf7_1(@RequestParam int idServicio, @RequestParam String fechaDesde) {
+        try {
+            return ResponseEntity.ok(disponibilidadRepository.findDisponibilidadFuturaByServicio(idServicio, fechaDesde));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    //RF7-2
+    @PostMapping("/rf7.2")
+    public ResponseEntity<String> rf7_2(
+        @RequestParam int idDisponibilidad,
+        @RequestParam int ccAfiliado,
+        @RequestParam int idOrden) {
+        try {
+            disponibilidadRepository.agendarDisponibilidad(idDisponibilidad, ccAfiliado, idOrden);
+            return new ResponseEntity<>("Disponibilidad agendada con éxito", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al agendar la disponibilidad: " + e.getMessage(),
+                HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

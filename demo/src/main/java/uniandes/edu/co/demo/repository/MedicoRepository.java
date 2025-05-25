@@ -16,9 +16,6 @@ public interface MedicoRepository extends MongoRepository<Medico, Integer> {
         @Query("{_id: ?0}")
         List<Medico> findMedicoById(int id);
 
-        default void insertMedico(Medico medico) {
-                save(medico);
-        }
 
         @Query("{_id: ?0}")
         @Update("{ $set: { nombre: ?1, especialidad: ?2, tipo_documento: ?3, codigos_nit_ips: ?4, ordenes_servicios: ?5 } }")
@@ -34,5 +31,11 @@ public interface MedicoRepository extends MongoRepository<Medico, Integer> {
 
         @Query(value = "{_id: ?0}", fields = "{'ordenes_servicios': 1}")
         List<Integer> findOrdenesServiciosByMedico(int id);
+
+        //RF4
+        default void insertMedico(Medico medico) {
+                save(medico);
+        }
+
 
 }

@@ -18,9 +18,6 @@ public interface AfiliadoRepository extends MongoRepository<Afiliado, Integer> {
     @Query("{_id: ?0}")
     List<Afiliado> findAfiliadoById(int id);
 
-    default void insertAfiliado(Afiliado afiliado) {
-        save(afiliado);
-    }
 
     @Query("{_id: ?0}")
     @Update("{ $set: { tipo_documento: ?1, nombre: ?2, fecha_nacimiento: ?3, direccion_residencia: ?4, telefono: ?5, estado: ?6, tipo: ?7, parentezco: ?8 } }")
@@ -34,4 +31,8 @@ public interface AfiliadoRepository extends MongoRepository<Afiliado, Integer> {
     @Query(value = "{_id: ?0}", fields = "{'ipss': 1}")
     List<IPS> findIPSsByAfiliado(int id);
 
+    //RF5
+    default void insertAfiliado(Afiliado afiliado) {
+        save(afiliado);
+    }
 }

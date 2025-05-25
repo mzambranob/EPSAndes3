@@ -26,4 +26,14 @@ public interface DisponibilidadRepository extends MongoRepository<Disponibilidad
 
     @Query(value = "{_id: ?0}", delete = true)
     void deleteDisponibilidadById(int id);
+
+    //RF7-1
+   @Query("{ 'servicio.id_servicio': ?0, 'fecha_disponibilidad': { $gte: ?1 }, 'estado_disponibilidad': 'DISPONIBLE' }")
+    List<Disponibilidad> findDisponibilidadFuturaByServicio(int idServicio, String fechaDesde);
+
+    //RF7-2
+    @Query("{_id: ?0}")
+    @Update("{ $set: { estado_disponibilidad: 'OCUPADA', cc_afiliado_asociado: ?1, id_orden_asociada: ?2 } }")
+    void agendarDisponibilidad(int idDisponibilidad, int afiliadoCC, int idOrden);
+
 }

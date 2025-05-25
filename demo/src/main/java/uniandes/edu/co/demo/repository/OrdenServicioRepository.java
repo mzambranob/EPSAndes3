@@ -16,10 +16,6 @@ public interface OrdenServicioRepository extends MongoRepository<OrdenServicio, 
     @Query("{_id: ?0}")
     List<OrdenServicio> findOrdenById(int id);
 
-    default void insertOrden(OrdenServicio orden) {
-        save(orden);
-    }
-
     @Query("{_id: ?0}")
     @Update("{ $set: { fecha: ?1, afiliado_objetivo: ?2, medico_prescriptor: ?3, estado_orden: ?4, servicio: ?5 } }")
     void updateOrden(int id, Date fecha, int afiliado_objetivo, int medico_prescriptor, String estado_orden,
@@ -27,4 +23,9 @@ public interface OrdenServicioRepository extends MongoRepository<OrdenServicio, 
 
     @Query(value = "{_id: ?0}", delete = true)
     void deleteOrdenById(int id);
+  
+    //RF6
+    default void insertOrden(OrdenServicio orden) {
+        save(orden);
+    }
 }

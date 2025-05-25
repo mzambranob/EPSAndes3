@@ -24,19 +24,7 @@ public class AfiliadoController {
     @Autowired
     private AfiliadoRepository afiliadoRepository;
 
-    @PostMapping("/new/save")
-    public ResponseEntity<String> createAfiliado(@RequestBody Afiliado afiliado) {
-
-        try {
-            afiliadoRepository.save(afiliado);
-            return new ResponseEntity<>("Afiliado creado con éxito", HttpStatus.CREATED);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ResponseEntity<>("Error al crear el afiliado: " + e.getMessage(),
-                    HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+   
 
     @PostMapping("/{id}/edit/save")
     public ResponseEntity<String> updateAfiliado(@PathVariable("id") int id, @RequestBody Afiliado afiliado) {
@@ -88,5 +76,19 @@ public class AfiliadoController {
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    
+    //RF5
+    @PostMapping("/new/save")
+    public ResponseEntity<String> createAfiliado(@RequestBody Afiliado afiliado) {
 
+        try {
+            afiliadoRepository.save(afiliado);
+            return new ResponseEntity<>("Afiliado creado con éxito", HttpStatus.CREATED);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Error al crear el afiliado: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

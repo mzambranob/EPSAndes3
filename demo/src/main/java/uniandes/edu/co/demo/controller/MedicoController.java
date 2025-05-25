@@ -23,16 +23,7 @@ public class MedicoController {
     @Autowired
     private MedicoRepository medicoRepository;
 
-    @PostMapping("/new/save")
-    public ResponseEntity<String> createMedico(@RequestBody Medico medico) {
-        try {
-            medicoRepository.save(medico);
-            return new ResponseEntity<>("Medico creado con éxito", HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>("Error al crear el médico: " + e.getMessage(),
-                    HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+    
 
     @PostMapping("/{id}/edit/save")
     public ResponseEntity<String> updateMedico(@PathVariable("id") int id, @RequestBody Medico medico) {
@@ -86,5 +77,16 @@ public class MedicoController {
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    
+    //RF4
+    @PostMapping("/new/save")
+    public ResponseEntity<String> createMedico(@RequestBody Medico medico) {
+        try {
+            medicoRepository.save(medico);
+            return new ResponseEntity<>("Medico creado con éxito", HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al crear el médico: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
