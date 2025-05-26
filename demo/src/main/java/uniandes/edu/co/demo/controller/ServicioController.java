@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uniandes.edu.co.demo.modelo.Servicio;
 import uniandes.edu.co.demo.repository.RFC2Repository;
+import uniandes.edu.co.demo.repository.RFC1Repository;
 import uniandes.edu.co.demo.repository.ServicioRepository;
 
 @RestController
@@ -17,6 +18,10 @@ public class ServicioController {
 
     @Autowired
     private ServicioRepository servicioRepository;
+    
+    @Autowired
+    private RFC1Repository rfc1Repository;
+
 
     @Autowired
     private RFC2Repository rfc2Repository;
@@ -80,6 +85,16 @@ public class ServicioController {
         try {
             List<Document> servicios = rfc2Repository.get20mostSolicitedServicios();
             return ResponseEntity.ok(servicios);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @GetMapping("/rfc1/{idservicio}")
+    public ResponseEntity<List<Document>> getDisponibilidadPorServicio(@PathVariable("idservicio") int idservicio) {
+        try {
+            List<Document> resultado = rfc1Repository.getAgendaDisponibilidadPorServicio(idservicio);
+            return ResponseEntity.ok(resultado);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
