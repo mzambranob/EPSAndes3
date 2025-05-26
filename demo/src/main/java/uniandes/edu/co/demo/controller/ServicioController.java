@@ -90,14 +90,18 @@ public class ServicioController {
         }
     }
 
+    
+
     @GetMapping("/rfc1/{idservicio}")
-    public ResponseEntity<List<Document>> getDisponibilidadPorServicio(@PathVariable("idservicio") int idservicio) {
+    public ResponseEntity<List<Document>> getDisponibilidadServicio(@PathVariable("idservicio") int idservicio) {
         try {
-            List<Document> resultado = rfc1Repository.getAgendaDisponibilidadPorServicio(idservicio);
+            List<Document> resultado = rfc1Repository.consultarDisponibilidadServicio(idservicio);
             return ResponseEntity.ok(resultado);
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
 
 }
