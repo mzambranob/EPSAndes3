@@ -29,22 +29,19 @@ public class RFC1Repository {
                 new Document("$match", new Document()
                         .append("servicio.id_servicio", idServicio)
                         .append("estado_disponibilidad", "DISPONIBLE")
-                        .append("fecha_disponibilidad", new Document("$gte", fechaInicio).append("$lte", fechaFin))
-                ),
+                        .append("fecha_disponibilidad", new Document("$gte", fechaInicio).append("$lte", fechaFin))),
                 new Document("$lookup", new Document()
                         .append("from", "medicos")
                         .append("localField", "numero_medico_asociado")
                         .append("foreignField", "numero_registro_medico")
-                        .append("as", "medico")
-                ),
+                        .append("as", "medico")),
                 new Document("$unwind", "$medico"),
 
                 new Document("$lookup", new Document()
                         .append("from", "ipss")
                         .append("localField", "codigo_nit")
                         .append("foreignField", "codigo_nit")
-                        .append("as", "ips")
-                ),
+                        .append("as", "ips")),
                 new Document("$unwind", "$ips"),
 
                 new Document("$project", new Document()
@@ -52,9 +49,7 @@ public class RFC1Repository {
                         .append("nombre_servicio", "$servicio.tipo_servicio")
                         .append("fecha_disponibilidad", 1)
                         .append("nombre_medico", "$medico.nombre")
-                        .append("nombre_ips", "$ips.nombre")
-                )
-        );
+                        .append("nombre_ips", "$ips.nombre")));
 
         return mongoTemplate.getCollection("disponibilidad")
                 .aggregate(pipeline)

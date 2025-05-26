@@ -18,10 +18,9 @@ public class ServicioController {
 
     @Autowired
     private ServicioRepository servicioRepository;
-    
+
     @Autowired
     private RFC1Repository rfc1Repository;
-
 
     @Autowired
     private RFC2Repository rfc2Repository;
@@ -90,18 +89,14 @@ public class ServicioController {
         }
     }
 
-    
-
     @GetMapping("/rfc1/{idservicio}")
-    public ResponseEntity<List<Document>> getDisponibilidadServicio(@PathVariable("idservicio") int idservicio) {
+    public ResponseEntity<List<Document>> getDisponibilidadPorServicio(@PathVariable("idservicio") int idservicio) {
         try {
             List<Document> resultado = rfc1Repository.consultarDisponibilidadServicio(idservicio);
             return ResponseEntity.ok(resultado);
         } catch (Exception e) {
-            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-
 
 }

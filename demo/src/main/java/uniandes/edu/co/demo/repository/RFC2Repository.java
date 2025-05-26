@@ -33,5 +33,4 @@ public class RFC2Repository {
                 .aggregate(pipeline)
                 .into(new ArrayList<>());
     }
-
 }
