@@ -1,11 +1,14 @@
 package uniandes.edu.co.demo.controller;
 
 import java.util.List;
+
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uniandes.edu.co.demo.modelo.Servicio;
+import uniandes.edu.co.demo.repository.RFC2Repository;
 import uniandes.edu.co.demo.repository.ServicioRepository;
 
 @RestController
@@ -14,6 +17,9 @@ public class ServicioController {
 
     @Autowired
     private ServicioRepository servicioRepository;
+
+    @Autowired
+    private RFC2Repository rfc2Repository;
 
     @PostMapping("/new/save")
     public ResponseEntity<String> createServicio(@RequestBody Servicio servicio) {
@@ -68,4 +74,15 @@ public class ServicioController {
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/rfc2")
+    public ResponseEntity<List<Document>> get20mostSolicitedServicios() {
+        try {
+            List<Document> servicios = rfc2Repository.get20mostSolicitedServicios();
+            return ResponseEntity.ok(servicios);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
 }

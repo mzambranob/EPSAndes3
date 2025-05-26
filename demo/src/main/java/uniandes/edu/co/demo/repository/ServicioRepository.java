@@ -5,8 +5,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.mongodb.repository.Update;
 import uniandes.edu.co.demo.modelo.Servicio;
-import uniandes.edu.co.demo.modelo.IPS;
-import uniandes.edu.co.demo.modelo.Medico;
 
 public interface ServicioRepository extends MongoRepository<Servicio, Integer> {
 
